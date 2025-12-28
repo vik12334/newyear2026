@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026!</title>
+    <style>
+        /* --- CSS STYLING --- */
+        
+        /* Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #1a0b2e 0%, #000000 100%);
+            color: white;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Hero Section with Animation */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Dark Overlay so text is readable */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-in;
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: #FFD700; /* Gold */
+            text-shadow: 0 0 20px #FFD700, 0 0 40px #ff00de;
+            margin-bottom: 20px;
+        }
+
+        p.sub-text {
+            font-size: 1.5rem;
+            color: #ddd;
+            margin-bottom: 40px;
+        }
+
+        /* Countdown Timer Styles */
+        .countdown {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            min-width: 100px;
+            backdrop-filter: blur(5px);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .time-box small {
+            color: #FFD700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 20px;
+            background-color: #050505;
+        }
+
+        .gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #FFD700;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+            border: 2px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            border-color: #FFD700;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            background: #fff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: #000;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .countdown { flex-wrap: wrap; }
+            .time-box { min-width: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>HAPPY NEW YEAR</h1>
+            <p class="sub-text">Counting down to 2026</p>
+            
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>Days</small>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="gallery">
+        <h2>Memories & Celebrations</h2>
+        <div class="gallery-grid">
+            <div class="card">
+                <img src="index.jpeg" alt="Celebration">
+            </div>
+            <div class="card">
+                <img src="index.jpg" alt="Party">
+            </div>
+            <div class="card">
+                <img src="index.jpyg" alt="Drinks">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Creator By Vikram</p>
+    </footer>
+
+    <audio id="bgMusic" loop>
+        <source src="index.mpeg" type="audio/mpeg">
+    </audio>
+
+    <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <script>
+        /* --- JAVASCRIPT --- */
+
+        // 1. MUSIC TOGGLE FUNCTION
+        const music = document.getElementById('bgMusic');
+        const btn = document.querySelector('.music-btn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                btn.innerHTML = "🎵 Play Music";
+            } else {
+                music.play().catch(error => {
+                    alert("Music file not found! Make sure 'music.mp3' is in the folder.");
+                });
+                btn.innerHTML = "⏸ Pause Music";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 2. COUNTDOWN TIMER LOGIC
+        const targetDate = new Date("January 1, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = targetDate - now;
+
+            if (gap < 0) {
+                // If date has passed
+                document.querySelector(".countdown").innerHTML = "<h1>🎉 Welcome to 2026! 🎉</h1>";
+                return;
+            }
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+
+            document.getElementById('days').innerText = d;
+            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Run immediately on load
+    </script>
+
+</body>
+</html>
